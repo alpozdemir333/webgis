@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.2.0/css/ol.css">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.2.0/build/ol.js"></script>
+    </head>
+    <body>
+
+        <div style="color: aliceblue;" id="left_panel" class="left_panel">
+            <h1 style="padding-left: 2%;">Queries</h1>
+            <p style="padding-left: 2%;">Tree Type:</p>
+            <select     style="margin-left: 4%;" id="tree_query">
+                <option value="Kavak">Kavak Ağacı</option>   
+                <option value="Çam">Çam Ağacı</option>
+                <option value="Ceviz">Ceviz Ağacı</option>                                            
+                <option value="Köknar">Köknar</option>
+                <option selected="selected" value="ALL">All</option>    
+            </select>
+
+            <p style="padding-left: 2%;">Minimum Height:</p>
+            <input value="0" style="margin-left: 4%;" type="text" id="low_height"></input>
+            <p style="padding-left: 2%;">Maximum Height:</p>
+            <input value="100" style="margin-left: 4%;" type="text" id="high_height"></input>
+            <br>
+            <br>
+            <br>
+            <button style="margin-left: 4%;" onclick="query();">Query</button>
+            <h1 style="padding-left: 2%;">Query Results</h1>
+            <p style="padding-left: 2%;" id="tpc">Record Count: 0</p>
+            <table id="restable" style="margin-left: 0%;margin-top: 1%;" class="blueTable">
+                <thead>
+                <tr>
+                <th>Tree Type</th>
+                <th>Tree Height</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+            <button style="margin-left: 4%;margin-top: 1%;" onclick="exportcsv();">Export as CSV</button>
+            <button style="margin-left: 4%;margin-top: 1%;" onclick="discard();">Discard</button>
+        </div>
+        <div id="map" class="map"></div>        
+        <script src="map_handler.js"></script>
+        <div id="right_panel" class="right_panel">
+            <h1 style="padding-left: 2%;"> Input and Selection</h1>
+            <p style="padding-left: 2%;">Tree Type:</p>
+            <select style="margin-left: 4%;" id="tree_type">
+                <option value="Kavak">Kavak Ağacı</option>   
+                <option value="Çam">Çam Ağacı</option>
+                <option value="Ceviz">Ceviz Ağacı</option>                                            
+                <option value="Köknar">Köknar</option>   
+            </select>
+            <p style="padding-left: 2%;">Tree Height:</p>
+            <input style="margin-left: 4%;" type="text" id="height"></input>
+            <p style="padding-left: 2%;">Latitude:</p>
+            <input style="margin-left: 4%;" type="text" id="Latitude"></input>
+            <p style="padding-left: 2%;">Longitude:</p>
+            <input style="margin-left: 4%;" type="text" id="Longitude"></input>
+            <br>
+            <br>
+            <br>
+            <button style="margin-left: 4%;" onclick="submit();">Add Tree</button>
+        </div>
+
+
+        
+    </body>
+</html>
